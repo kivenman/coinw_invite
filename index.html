@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinW 币赢 - 专属邀请注册 | 最高返佣50%</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+                 .logo {
+             width: 80px;
+             height: 80px;
+             background: white;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 28px;
+             font-weight: bold;
+             color: #667eea;
+             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+             padding: 10px;
+         }
+
+         .logo img {
+             width: 100%;
+             height: 100%;
+             object-fit: contain;
+         }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            box-shadow: 0 8px 25px rgba(17, 153, 142, 0.3);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 12px 35px rgba(17, 153, 142, 0.4);
+        }
+
+        .ios-tutorial {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .tutorial-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .tutorial-steps li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding-left: 50px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .tutorial-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .commission-calculator {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            margin: 25px 0;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .calc-input {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .calc-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .calc-result {
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .commission-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .highlight-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            color: #2c3e50;
+        }
+
+        .highlight-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .trust-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .trust-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .trust-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            background: rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 25px;
+            }
+            .logo-section {
+                flex-direction: column;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header fade-in">
+                         <div class="logo-section">
+                 <div class="logo">
+                     <img src="https://hkprod.hkoss8976.com/static/_home/_nuxt/cw-logo-light.BGAdSA2R.svg" alt="CoinW Logo" />
+                 </div>
+                 <div>
+                    <h1>CoinW 币赢</h1>
+                    <p>全球领先数字资产交易平台 | 专属邀请注册</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content fade-in">
+            <!-- 信任指标 -->
+            <section class="section">
+                <h2><span class="icon">🛡️</span>平台优势</h2>
+                <div class="trust-indicators">
+                    <div class="trust-card">
+                        <div class="trust-icon">🔒</div>
+                        <h3>安全可靠</h3>
+                        <p>银行级安全保障<br>多重加密防护</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">🌍</div>
+                        <h3>全球服务</h3>
+                        <p>覆盖100+国家<br>7×24小时交易</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">⚡</div>
+                        <h3>极速交易</h3>
+                        <p>毫秒级撮合引擎<br>百万级并发处理</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">💎</div>
+                        <h3>专业团队</h3>
+                        <p>顶级技术团队<br>丰富行业经验</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 注册链接 -->
+            <section class="section">
+                <h2><span class="icon">🚀</span>立即注册</h2>
+                <p style="margin-bottom: 20px; font-size: 1.1rem; color: #666;">通过专属邀请链接注册，享受最高返佣待遇</p>
+                <div class="action-buttons">
+                    <a href="https://www.faefrdpenn.com/zh_CN/register?r=ET52UDVY" class="btn" target="_blank">
+                        🎯 立即注册 CoinW
+                    </a>
+                    <a href="https://www.faefrdpenn.com/zh_CN/install-app" class="btn btn-secondary" target="_blank">
+                        📱 下载APP
+                    </a>
+                    <a href="https://testflight.apple.com/join/EtUniCyL" class="btn" style="background: linear-gradient(135deg, #007AFF, #5AC8FA); box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);" target="_blank">
+                        🍎 iOS TestFlight 快速下载
+                    </a>
+                </div>
+            </section>
+
+            <!-- 返佣优势 -->
+            <section class="section">
+                <h2><span class="icon">💰</span>超高返佣政策</h2>
+                <div class="commission-highlight">
+                    <div class="highlight-card">
+                        <div class="highlight-number">50%</div>
+                        <h3>合约交易返佣</h3>
+                        <p>永久返还手续费50%</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number">40%</div>
+                        <h3>现货交易返佣</h3>
+                        <p>永久返还手续费40%</p>
+                    </div>
+                </div>
+
+                <!-- 手续费计算器 -->
+                <div class="commission-calculator">
+                    <h3 style="margin-bottom: 20px; font-size: 1.5rem;">💡 返佣节约计算器</h3>
+                    <p style="margin-bottom: 20px;">计算您通过返佣政策能节约多少手续费</p>
+                    
+                    <div class="calculator-grid">
+                        <div>
+                            <label style="display: block; margin-bottom: 8px;">月交易金额 (USDT)</label>
+                            <input type="number" id="monthlyVolume" class="calc-input" placeholder="例如: 100000" value="100000">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 8px;">交易类型</label>
+                            <select id="tradeType" class="calc-input">
+                                <option value="contract">合约交易</option>
+                                <option value="spot">现货交易</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calc-result" id="calcResult">
+                        <h4>计算结果</h4>
+                        <p id="resultText">请输入交易金额查看节约效果</p>
+                    </div>
+                </div>
+
+                <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">📊 手续费标准参考</h4>
+                    <p><strong>合约交易：</strong>吃单 0.05%，挂单 0.01%</p>
+                    <p><strong>现货交易：</strong>吃单 0.1%，挂单 0.1%</p>
+                    <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">
+                        💰 通过我们的邀请链接注册，您将获得业内最高的返佣比例！
+                    </p>
+                </div>
+            </section>
+
+                         <!-- iOS 下载教程 -->
+             <section class="section">
+                 <h2><span class="icon">📱</span>iOS 下载教程</h2>
+                 
+                 <!-- iOS 快速下载入口 -->
+                 <div style="background: linear-gradient(135deg, #007AFF, #5AC8FA); border-radius: 15px; padding: 25px; margin-bottom: 25px; text-align: center; color: white;">
+                     <h3 style="margin-bottom: 15px; font-size: 1.3rem;">🚀 国内iOS用户专属快速通道</h3>
+                     <p style="margin-bottom: 20px; opacity: 0.9;">一键直达TestFlight，无需复杂步骤</p>
+                     <a href="https://testflight.apple.com/join/EtUniCyL" target="_blank" 
+                        style="display: inline-block; background: white; color: #007AFF; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'"
+                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                         🍎 立即下载 TestFlight 版本
+                     </a>
+                 </div>
+                 
+                 <div class="ios-tutorial">
+                    <h3 style="margin-bottom: 20px; color: #2c3e50;">🍎 iOS TestFlight 安装指南</h3>
+                    <p style="margin-bottom: 15px;">
+                        <strong>TestFlight 下载链接：</strong>
+                        <a href="https://testflight.apple.com/join/EtUniCyL" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                            https://testflight.apple.com/join/EtUniCyL
+                        </a>
+                    </p>
+                    
+                    <ol class="tutorial-steps">
+                        <li>点击上方链接，在 App Store 中下载并安装 TestFlight</li>
+                        <li>安装完成后，返回链接页面，点击"开始测试"</li>
+                        <li>点击"接受"，开始下载 CoinW 应用</li>
+                        <li>下载完成后即可开始使用</li>
+                    </ol>
+                </div>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin-top: 20px;">
+                    <p><strong>💡 温馨提示：</strong></p>
+                    <p>• TestFlight 是苹果官方的测试版本分发平台，完全安全可靠</p>
+                    <p>• 如遇到下载问题，请确保网络连接稳定</p>
+                    <p>• 下载完成后请使用注册时的邀请码进行登录</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>🔥 专属邀请码：3760942</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                立即注册享受超高返佣 | 安全可靠 | 7×24小时服务
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 手续费计算器
+        function calculateCommission() {
+            const volume = parseFloat(document.getElementById('monthlyVolume').value) || 0;
+            const tradeType = document.getElementById('tradeType').value;
+            
+            if (volume <= 0) {
+                document.getElementById('resultText').innerHTML = '请输入有效的交易金额';
+                return;
+            }
+
+            let makerFee, takerFee, rebateRate;
+            
+            if (tradeType === 'contract') {
+                makerFee = 0.0001; // 0.01%
+                takerFee = 0.0005; // 0.05%
+                rebateRate = 0.5; // 50%
+            } else {
+                makerFee = 0.001; // 0.1%
+                takerFee = 0.001; // 0.1%
+                rebateRate = 0.4; // 40%
+            }
+
+            // 假设50%吃单，50%挂单
+            const avgFee = (makerFee + takerFee) / 2;
+            const monthlyFee = volume * avgFee;
+            const rebateAmount = monthlyFee * rebateRate;
+            const yearlyRebate = rebateAmount * 12;
+
+            document.getElementById('resultText').innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; text-align: center;">
+                    <div>
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #fff;">$${monthlyFee.toFixed(2)}</div>
+                        <div>月手续费</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #4ade80;">$${rebateAmount.toFixed(2)}</div>
+                        <div>月返佣金额</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #fbbf24;">$${yearlyRebate.toFixed(2)}</div>
+                        <div>年节约总额</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 绑定事件
+        document.getElementById('monthlyVolume').addEventListener('input', calculateCommission);
+        document.getElementById('tradeType').addEventListener('change', calculateCommission);
+
+        // 初始计算
+        calculateCommission();
+
+        // 添加滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有section
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 
