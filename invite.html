@@ -245,6 +245,35 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .step-guide h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-guide p {
+            margin-left: 42px;
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -300,18 +329,30 @@
 
             <!-- 注册链接 -->
             <section class="section">
-                <h2><span class="icon">🚀</span>立即注册</h2>
-                <p style="margin-bottom: 20px; font-size: 1.1rem; color: #666;">通过专属邀请链接注册，开启您的数字资产交易之旅</p>
-                <div class="action-buttons">
-                    <a id="registerBtn" href="https://www.faefrdpenn.com/zh_CN/register?r=3760942" class="btn" target="_blank">
-                        🎯 立即注册 CoinW
-                    </a>
-                    <a href="https://www.faefrdpenn.com/zh_CN/install-app" class="btn btn-secondary" target="_blank">
-                        📱 下载APP
-                    </a>
-                    <a href="https://testflight.apple.com/join/EtUniCyL" class="btn" style="background: linear-gradient(135deg, #007AFF, #5AC8FA); box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);" target="_blank">
-                        🍎 iOS TestFlight 快速下载
-                    </a>
+                <h2><span class="icon">🚀</span>两步开启交易之旅</h2>
+                <div class="step-guide">
+                    <div>
+                        <h3><span class="step-number">1</span> 首先，点击下方按钮，使用专属邀请码完成注册</h3>
+                        <p>请务必通过此链接注册，以确保您能享受到邀请专属福利。</p>
+                        <div class="action-buttons" style="margin-top: 15px; margin-bottom: 30px;">
+                             <a id="registerBtn" href="https://www.faefrdpenn.com/zh_CN/register?r=3760942" class="btn" target="_blank">
+                                🎯 立即注册 CoinW
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3><span class="step-number">2</span> 然后，下载官方App，使用注册账号登录</h3>
+                        <p>注册完成后，请下载App。如果点击下载时遇到浏览器或手机安全提示，请选择“信任”或“允许”。</p>
+                        <div class="action-buttons" style="margin-top: 15px;">
+                            <a href="https://www.faefrdpenn.com/zh_CN/install-app" class="btn btn-secondary download-btn" target="_blank">
+                                📱 下载官方APP (安卓/iOS通用)
+                            </a>
+                            <a href="https://testflight.apple.com/join/EtUniCyL" class="btn download-btn" style="background: linear-gradient(135deg, #007AFF, #5AC8FA); box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);" target="_blank">
+                                🍎 iOS TestFlight 快速下载
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -323,7 +364,7 @@
                 <div style="background: linear-gradient(135deg, #007AFF, #5AC8FA); border-radius: 15px; padding: 25px; margin-bottom: 25px; text-align: center; color: white;">
                     <h3 style="margin-bottom: 15px; font-size: 1.3rem;">🚀 国内iOS用户专属快速通道</h3>
                     <p style="margin-bottom: 20px; opacity: 0.9;">一键直达TestFlight，无需复杂步骤</p>
-                    <a href="https://testflight.apple.com/join/EtUniCyL" target="_blank" 
+                    <a href="https://testflight.apple.com/join/EtUniCyL" target="_blank" class="download-btn"
                        style="display: inline-block; background: white; color: #007AFF; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;"
                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'"
                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
@@ -392,6 +433,32 @@
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
             setInviteCode();
+
+            // 为所有下载按钮添加确认提示
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // 阻止默认跳转
+                    const userConfirmed = confirm(
+                        "为确保您能享受专属邀请福利，请确认您已完成注册。\n\n" +
+                        "【如果还未注册】请先点击【立即注册】按钮进行注册。\n" +
+                        "【如果已经注册】请点击【确定】继续下载。"
+                    );
+
+                    if (userConfirmed) {
+                        window.open(this.href, '_blank');
+                    } else {
+                        // 可选：如果用户取消，可以滚动到注册按钮并高亮提示
+                        const registerBtn = document.getElementById('registerBtn');
+                        registerBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        registerBtn.style.transition = 'all 0.2s ease';
+                        registerBtn.style.boxShadow = '0 0 25px 10px rgba(255, 223, 186, 0.8)';
+                        setTimeout(() => {
+                            registerBtn.style.boxShadow = ''; // 恢复原样
+                        }, 2500);
+                    }
+                });
+            });
         });
 
         // 添加滚动动画
